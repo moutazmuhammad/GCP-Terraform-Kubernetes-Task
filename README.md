@@ -126,7 +126,7 @@ kubectl create -f redis-db-deploy.yaml
 ```sh
 kubectl create -f backend-svc.yaml
 ```
-> Note: Vssign backend-svc generated IP to env variables "REDIS_HOST" of python-app-deploy
+> Note: Assign backend-svc generated IP to env variables "REDIS_HOST" of python-app-deploy
 
 ```sh
 kubectl create -f python-app-deploy
