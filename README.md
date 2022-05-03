@@ -97,9 +97,12 @@ docker push gcr.io/<project_name>/redis
 
 * SSH to private VM .
 ```sh
-curl -fsSL https://test.docker.com -o test-docker.sh 
+gcloud compute ssh --zone <zone_name> <vm-name>  --tunnel-through-iap --project <project_name>
 ```
 * Download Docker on your VM
+```sh
+curl -fsSL https://test.docker.com -o test-docker.sh 
+```
 ```sh
 sudo sh test-docker.sh
 ```
