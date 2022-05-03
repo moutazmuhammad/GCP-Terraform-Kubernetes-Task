@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: front-app
+  template:
+    metadata:
+      labels:
+        app: front-app
+    spec:
+      containers:
+        - name: python-app
+          image: front-app
+          ports:
+            - containerPort: 8000
+          env:
+            - name: ENVIRONMENT
+              value: "DEV"
+            - name: HOST
+              value: "localhost"
+            - name: PORT
+              value: "8000"
+            - name: REDIS_HOST
+              value:  "localhost"       # Backend service IP
+            - name: REDIS_PORT
+              value: "6379"
+            - name: REDIS_DB
+              value: "0"
