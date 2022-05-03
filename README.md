@@ -4,9 +4,9 @@
 
 ## At first:
 * Create project from consol : moutaz-project
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/8.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/8.png?raw=true)
 * Create bucket which will have the state of terraform code (If you work in team) from consol
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/9.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/9.png?raw=true)
 
 > Note: You will need to change bucket name.
 
@@ -16,32 +16,32 @@
 * Create a vpc with disabling auto_create_subnetworks .
 
 * Create two subnets : Management subnet (has the following: NAT gateway - Private VM) and Restricted subnet (has the following: Private standard GKE cluster (private control plan)) .
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/1.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/1.png?raw=true)
 
 * create a router resource and nat getway , attach Management subnet  to allow to the private VM to access the internet.
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/10.png?raw=true)
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/11.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/10.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/11.png?raw=true)
 
 * create second subnet: private subnet cause there is no nat attached to it so it cannot connect public internet .
 
 * create a fire wall that allowing port 80 for ssh out instance.
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/12.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/12.png?raw=true)
 
 * create an instance and attach it to Management subnet to act later as a bastion host .
 
 * create a regional private container cluster with 3 node locations 
-* - attach cluster to vpc and Restricted subnet
-* - make its nodes and endpoints private 
-* - attach master_ipv4_cidr_block = "172.16.0.0/28" for master plan 
-* - attach secondry private subnet ip ranges for pods and services
+    - attach cluster to vpc and Restricted subnet
+    - make its nodes and endpoints private 
+    - attach master_ipv4_cidr_block = "172.16.0.0/28" for master plan 
+    - attach secondry private subnet ip ranges for pods and services
       cluster_secondary_range_name = "k8s-pod-range"
       services_secondary_range_name = "k8s-service-range"
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/2.png?raw=true)
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/13.png?raw=true)
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/14.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/2.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/13.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/14.png?raw=true)
 
 * create node pool 
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/3.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/3.png?raw=true)
 
 ## Commands to initialize gcp infrastructure:
 ```sh
@@ -87,7 +87,7 @@ docker tag redis gcr.io/<project_name>/redis
 ```sh
 docker push gcr.io/<project_name>/redis
 ```
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/4.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/4.png?raw=true)
 
 
 # Kubernates
@@ -109,7 +109,7 @@ sudo usermod -aG docker ${USER}
 ```sh
 gcloud auth config-docker
 ```
-- - Then reboot the VM
+- Then reboot the VM .
 
 * From Your Private VM: SSH to the cluster
 ```sh
@@ -131,11 +131,11 @@ kubectl create -f python-app-deploy
 ```sh
 kubectl create -f loadblancer.yaml
 ```
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/5.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/5.png?raw=true)
 
 * Use this command to get all resources
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/6.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/6.png?raw=true)
 
 * Use external IP of the loadblancer to open the Python App in your browser.
-![Build Status] (https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/7.png?raw=true)
+![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/7.png?raw=true)
 
