@@ -48,7 +48,7 @@
 terraform init 
 ```
 ```sh
-terraform init 
+terraform plan 
 ```
 ```sh
 terraform apply 
