@@ -25,7 +25,7 @@ spec:
             - name: PORT
               value: "8000"
             - name: REDIS_HOST
-              value:  "localhost"       # Backend service IP
+              value:  front-app.default.svc.cluster.local       # Backend service IP
             - name: REDIS_PORT
               value: "6379"
             - name: REDIS_DB
