@@ -75,17 +75,17 @@ docker build -t <image_name> .
 * We need image redis to be uploaded from local to GCR .
 * Command used to push image from local machine to GCR .
 ```sh
-docker tag <image_name> gcr.io/<project_name>/front
+docker tag <image_name> gcr.io/<project_name>/<image_name>
 ```
 ```sh
-docker push gcr.io/<project_name>/front
+docker push gcr.io/<project_name>/<image_name>
 ```
 * Command used to pull image from GCR to VM.
 ```sh
-docker tag redis gcr.io/<project_name>/redis
+docker tag redis gcr.io/<project_name>/<image_name>
 ```
 ```sh
-docker push gcr.io/<project_name>/redis
+docker push gcr.io/<project_name>/<image_name>
 ```
 ![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/4.png?raw=true)
 
