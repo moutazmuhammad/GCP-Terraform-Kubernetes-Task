@@ -24,7 +24,7 @@
 
 * create second subnet: private subnet cause there is no nat attached to it so it cannot connect public internet .
 
-* create a fire wall that allowing port 80 for ssh out instance.
+* create a fire wall that allowing port 22 for ssh out instance.
 ![Build Status](https://github.com/moutazmuhammad/GCP-Terraform-Kubernetes-Task/blob/main/img/12.png?raw=true)
 
 * create an instance and attach it to Management subnet to act later as a bastion host .
